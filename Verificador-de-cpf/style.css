@@ -1,0 +1,126 @@
+:root {
+    --cor-body: #f0f8ff;
+    --cor-texto: #000000;
+    --cor-botao: #6cb4df;
+    --cor-botao-hover: green
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    
+}
+
+body {
+	background: linear-gradient(-45deg, #f0f8ff, #23a6d5);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+main{
+    height: 30vh;
+    margin-top: 15%;
+    
+}
+
+h1 {
+    font-size: 25px;
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.verificador_cpf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-texto);
+    font-size: 15px;
+    margin-top: 15px;
+    
+}
+
+.formulario label {
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: left;
+
+
+}
+
+.formulario {
+    width: wrap;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button_submit {
+    border-radius: 6px;
+    border: none;
+    height:30px;
+    width: 80px;
+    background-color: var(--cor-botao);
+    color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+
+.button_submit:hover {
+
+    background-color: white;
+    color: var(--cor-botao);
+
+
+}
+
+
+.formulario div {
+    width: wrap;
+    
+}
+
+#cpf {
+    height:30px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 6px;   
+}
+
+.container_texto {
+    height: 50px;
+    width: 150px;
+    background:green;
+    color: #f0f8ff;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
