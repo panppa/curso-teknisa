@@ -5,8 +5,6 @@ $(document).ready(function () {       //executa apenas quando o html é carregad
 function validar() {
     const cpf = document.getElementById("cpf").value;
     const cpfFormatado = formatar(cpf);
-    console.log(cpfFormatado);
-    console.log(cpf);
 
     if (cpfFormatado.length != 11) {
         mensagem("O CPF deve conter 11 números.", 'red')
@@ -15,11 +13,6 @@ function validar() {
 
     const dv1 = 1;
     const dv2 = 2;
-
-
-    console.log(dv1, dv2)
-
-    console.log(verificarDv(cpfFormatado, dv2));
 }
 
 function formatar(cpf) {
@@ -33,24 +26,21 @@ function verificarDigitosRepetidos() {
 }
 
 
-  /*
-  function verificarDv(cpf, posicao) {
-    const sequencia = cpf.slice(0, 8 + posicao).split('');
-    console.log (sequencia);
-  
+function verificarDv(cpf, posicao) {
+    const sequencia = cpf.slice(posicao -1 , 8 + posicao).split('');
     let soma = 0;
-    let multiplicador = posicao;
-  
+    let multiplicador = 10;
+
     for (const numero of sequencia) {
-      soma += multiplicador * Number(numero);
-      multiplicador--;
+        soma += multiplicador * Number(numero);
+        multiplicador--;
+        
     }
-  
-    const restoDivisao = (soma * 10) % 11;
+    const resto = (soma * 10) % 11;
     const digito = cpf.slice(8 + posicao, 9 + posicao);
-    const digitoVerificador = restoDivisao < 2 ? 0 : 11 - restoDivisao === Number(digito)
-    return String(digitoVerificador);
-  }*/
+    return resto == digito;
+}
+
 
 
 function mensagem(texto, cor){
