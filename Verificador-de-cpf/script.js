@@ -7,12 +7,19 @@ function validar() {
     const cpfFormatado = formatar(cpf);
 
     if (cpfFormatado.length != 11) {
-        mensagem("O CPF deve conter 11 números.", 'red')
+        mensagem("O CPF deve conter 11 números.", 'red');
         return;
     }
 
     const dv1 = 1;
     const dv2 = 2;
+
+
+    if(verificarDv(cpfFormatado, dv1) && verificarDv(cpfFormatado, dv2)){
+        mensagem("CPF Válido", 'green');
+    }else{
+        mensagem("CPF Inválido", 'red');
+    }
 }
 
 function formatar(cpf) {
@@ -21,7 +28,7 @@ function formatar(cpf) {
 }
 
 function verificarDigitosRepetidos() {
-    mensagem("Os números digitados devems er diferentes.","red")
+    mensagem("Os números digitados devems er diferentes.","red");
 
 }
 
@@ -34,10 +41,14 @@ function verificarDv(cpf, posicao) {
     for (const numero of sequencia) {
         soma += multiplicador * Number(numero);
         multiplicador--;
-        
     }
-    const resto = (soma * 10) % 11;
+    let resto = (soma*10) % 11;
     const digito = cpf.slice(8 + posicao, 9 + posicao);
+
+    if (resto == 10){
+        resto = 0;
+    }
+
     return resto == digito;
 }
 
@@ -46,7 +57,10 @@ function verificarDv(cpf, posicao) {
 function mensagem(texto, cor){
     const mensagem = document.getElementById("mensagem");
     const mensagemBox = document.getElementById("mensagemBox");
+
     mensagem.innerHTML = texto;
+    mensagemBox.style.display = 'flex';
     mensagemBox.style.backgroundColor = cor;
+    
     
 }
